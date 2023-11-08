@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import css from 'components/index.module.css';
 
 const Layoyt = () => {
@@ -9,18 +9,17 @@ const Layoyt = () => {
         <nav>
           <ul>
             <li>
-              <NavLink className={css.headerLink} to="/">
-                Home
-              </NavLink>
+              <NavLink className={css.headerLink} to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink className={css.headerLink} to="/movies">
-                Movies
-              </NavLink>
+              <NavLink className={css.headerLink} to="/movies">Movies</NavLink>
             </li>
           </ul>
         </nav>
-      </header>
+          </header>
+          <main>
+              <Outlet/>
+          </main>
     </div>
   );
 };

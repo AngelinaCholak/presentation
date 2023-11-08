@@ -1,10 +1,32 @@
 
+
+
 .container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; 
-  border: 1px solid black; 
+  padding: 1rem;
 
+  border: 1px solid black; 
+}
+
+.container nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.container nav ul li {
+  margin-right: 10px;
+}
+
+.headerLink {
+  text-decoration: none;
+  color: white;
+}
+
+/* Інші стилі для контенту, якщо потрібно */
+main {
+  padding: 20px;
 }
 
 
@@ -19,5 +41,13 @@
 } */
 .headerLink:active {
   color: blueviolet; 
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* колір фону */
+  z-index: 1000; /* зміщення відносно інших елементів */
 }
 
