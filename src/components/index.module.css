@@ -1,0 +1,23 @@
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px; 
+  border: 1px solid black; 
+
+}
+
+
+.headerLink {
+  color: black; 
+  text-decoration: none; 
+  margin-right: 10px; 
+}
+
+/* .headerLink:active {
+  color: blueviolet;
+} */
+.headerLink:active {
+  color: blueviolet; 
+}
+
