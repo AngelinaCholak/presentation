@@ -121,3 +121,23 @@ main {
 .link:hover {
   color: blueviolet;
 }
+
+/* Trending today */
+.titleTrending {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2em;
+  /* animation: pulse 7s infinite; */
+}
+
+/* @keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */

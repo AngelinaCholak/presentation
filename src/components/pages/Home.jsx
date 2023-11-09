@@ -1,7 +1,7 @@
 import { fetchTrending } from 'components/config';
 import FilmsList from 'components/FilmsList/FilmsList';
 import React, { useEffect, useState } from 'react';
-
+import css from 'components/index.module.css';
 const Home = () => {
   const [films, setFilms] = useState([]);
 
@@ -20,9 +20,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center', margin: '20px 0', fontSize: '2em' }}>
-        Trending today
-      </h1>
+      <h1 className={css.titleTrending}>Trending today</h1>
       <FilmsList films={films} />
     </div>
   );
