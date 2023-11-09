@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import Movies from './pages/Movies';
-import Layoyt from './pages/Layoyt';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import Cast from './pages/Cast';
 import Reviews from './pages/Reviews';
+import Layoyt from './Layoyt/Layoyt';
 
 export const App = () => {
   return (

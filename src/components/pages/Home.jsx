@@ -1,9 +1,31 @@
-import React from 'react'
+import { fetchTrending } from 'components/config';
+import FilmsList from 'components/FilmsList/FilmsList';
+import React, { useEffect, useState } from 'react';
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const [films, setFilms] = useState([]);
 
-export default Home
+  useEffect(() => {
+    const fetchTrendingFilms = async () => {
+      try {
+        const trendingFilms = await fetchTrending();
+        setFilms(trendingFilms);
+      } catch (error) {
+        console.error('Error fetching trending films:', error);
+      }
+    };
+
+    fetchTrendingFilms();
+  }, []);
+
+  return (
+    <div>
+      <h1 style={{ textAlign: 'center', margin: '20px 0', fontSize: '2em' }}>
+        Trending today
+      </h1>
+      <FilmsList films={films} />
+    </div>
+  );
+};
+
+export default Home;
