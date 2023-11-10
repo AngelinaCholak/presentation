@@ -54,7 +54,7 @@ const MovieDetails = () => {
           <ul className={css.list}>
             <li className={css.listItem}>
               <NavLink
-                to={"cast"}
+                to={'cast'}
                 className={css.link}
               >
                 Cast
