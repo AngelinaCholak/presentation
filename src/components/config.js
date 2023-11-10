@@ -39,3 +39,13 @@ export const fetchReviews = async movie_id => {
   });
   return response.data;
 };
+export const fetchSearchedFilms = async queryValue => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${queryValue}`
+    );
+    return response.data.results;
+  } catch (error) {
+    throw new Error(`Error fetching searched films: ${error.message}`);
+  }
+};

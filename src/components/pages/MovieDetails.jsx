@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { fetchDetails } from 'components/config';
 import css from 'components/index.module.css';
-// import Cast from './Cast';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
