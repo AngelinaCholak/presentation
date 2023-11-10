@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { fetchDetails } from 'components/config';
 import css from 'components/index.module.css';
-import Cast from './Cast';
+// import Cast from './Cast';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -53,8 +53,11 @@ const MovieDetails = () => {
           <h3 className={css.heading}>Additional information</h3>
           <ul className={css.list}>
             <li className={css.listItem}>
-              <NavLink to={`/movies/${movieId}/cast`} className={css.link}>
-                <Cast />
+              <NavLink
+                to={"cast"}
+                className={css.link}
+              >
+                Cast
               </NavLink>
             </li>
             <li className={css.listItem}>
@@ -63,6 +66,7 @@ const MovieDetails = () => {
               </NavLink>
             </li>
           </ul>
+          <Outlet/>
         </div>
       )}
     </div>
