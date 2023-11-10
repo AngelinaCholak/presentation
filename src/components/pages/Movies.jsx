@@ -6,8 +6,8 @@ import css from 'components/FilmsList/FilmsList.module.css';
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchedFilms, setSearchedFilms] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   const queryValue = searchParams.get('query');
 
