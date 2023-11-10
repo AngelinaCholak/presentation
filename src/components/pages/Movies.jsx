@@ -21,14 +21,14 @@ const Movies = () => {
   useEffect(() => {
     const getSearchedFilms = async () => {
       try {
-        setIsLoading(true);
+        // setIsLoading(true);
         const filmsSearch = await fetchSearchedFilms(queryValue);
         setSearchedFilms(filmsSearch);
       } catch (error) {
         console.error('Error fetching searched films:', error.message);
-        setError(error.message);
+        // setError(error.message);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
         console.log('Finally');
       }
     };
