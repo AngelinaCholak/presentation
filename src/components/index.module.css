@@ -25,16 +25,22 @@ main {
   padding: 20px;
 }
 
-
 .headerLink {
-  color: black; 
-  text-decoration: none; 
-  margin-right: 10px; 
+  color: #555;
+  text-decoration: none;
+  margin-right: 10px;
 }
 
 .headerLink:active {
-  color: blueviolet; 
+  color: blueviolet;
+  
 }
+
+/* .headerLink.active {
+  color: #555;
+} */
+
+
 .header {
   position: fixed;
   top: 0;
@@ -127,6 +133,7 @@ main {
   text-align: center;
   margin: 20px 0;
   font-size: 2em;
+  color: #555;
   /* animation: pulse 7s infinite; */
 }
 

@@ -9,12 +9,22 @@ const Layoyt = ({children}) => {
         <nav>
           <ul>
             <li>
-              <NavLink className={css.headerLink} to="/">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? css.active : css.headerLink
+                }
+                to="/"
+              >
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink className={css.headerLink} to="/movies">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? css.active : css.headerLink
+                }
+                to="/movies"
+              >
                 Movies
               </NavLink>
             </li>
