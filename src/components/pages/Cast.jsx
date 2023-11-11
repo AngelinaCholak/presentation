@@ -35,7 +35,11 @@ const Cast = () => {
                   className={css.castImage}
                 />
               ) : (
-                <div className={css.imagePlaceholder}>Photo Not Available</div>
+                <img
+                  src="https://via.placeholder.com/500x750"
+                  alt="Poster not available"
+                  className={css.castImage}
+                />
               )}
               <p className={css.castName}>{actor.name}</p>
               <p className={css.castCharacter}>Character: {actor.character}</p>
