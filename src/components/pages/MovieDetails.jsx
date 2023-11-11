@@ -9,7 +9,7 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-   const backLinkRef = useRef(location.state?.from ?? '/');
+  const backLinkRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const getDetailsFilm = async () => {
@@ -63,12 +63,22 @@ const MovieDetails = () => {
           <h3 className={css.heading}>Additional information</h3>
           <ul className={css.list}>
             <li className={css.listItem}>
-              <NavLink to={'cast'} className={css.link}>
+              <NavLink
+                to={'cast'}
+                className={({ isActive }) =>
+                  isActive ? css.active : css.headerLink
+                }
+              >
                 Cast
               </NavLink>
             </li>
             <li className={css.listItem}>
-              <NavLink to="reviews" className={css.link}>
+              <NavLink
+                to={"reviews"}
+                className={({ isActive }) =>
+                  isActive ? css.active : css.headerLink
+                }
+              >
                 Reviews
               </NavLink>
             </li>

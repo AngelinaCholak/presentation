@@ -13,20 +13,23 @@
 .containerMovie {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .movieContainer {
   margin: 20px;
   padding: 20px;
-  background-color: #f5f5f5;
+   background: linear-gradient(to right, rgba(104, 78, 129, 0.5), rgb(240, 233, 246)); 
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 28px;
+  font-style: italic;
+  text-transform: uppercase;
   font-weight: bold;
-  color: #333;
+  color: black;
+  margin-top: 40px;
 }
 
 .detailsContainer {
@@ -47,43 +50,62 @@
 .heading {
   font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: black;
 }
 
 .subtitle {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: black;
   margin-top: 15px;
 }
 
 .text {
   font-size: 16px;
-  color: #555;
+  color: black;
 }
 
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
+ 
+
+
 }
 
 .listItem {
   font-size: 16px;
-  color: #555;
+  color: black;
   margin-top: 8px;
+  display: flex;
 }
 
-.link {
+.headerLink {
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  margin-right: 10px;
+  font-weight: 500;
+  background-color: blueviolet;
+  color: black;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.active {
+  background-color: blueviolet;
+  color: #f6efef;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  
 }
 
-.link:hover {
+/* .link:hover {
   color: blueviolet;
-}
+} */
 
 /* Trending today */
 .bodyFilms{
@@ -116,6 +138,7 @@
   height: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.7s;
+  padding: 10px;
 }
 
 .castList {
@@ -123,8 +146,9 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 2%;
   padding: 0;
-  list-style: none; 
+  list-style: none;
   text-align: center;
+  max-width: 100%;
 }
 
 .castImage:hover {
@@ -134,13 +158,15 @@
 .castName {
   font-size: 1.2rem;
   margin-top: 10px;
-  color: #333;
+  color: black;
 }
 
 .castItem {
   box-sizing: border-box;
-  padding: 10px;
-  background-color: #f9f9f9;
+  background: linear-gradient(to right, rgba(216, 208, 223, 0.5), rgb(89, 60, 117)); 
+  border-radius: 5px;
+  
+  
 }
 
 .navLink {
@@ -148,21 +174,20 @@
 }
 
 .castCharacter {
-  color: #666;
+  color: black;
 }
 
 .backLink {
-  position: fixed;
-  left: 20px;
-  align-items: center;
+  position: absolute;
+  left: 30px;
   text-decoration: none;
-  font-size: 18px;
-  color: #666; 
-  background-color: #fff; 
-
+  font-size: 20px;
+  color: black;
+  margin-top: 30px;
+  
 }
 
 .backLink:hover {
-  color: #fff; /* Змінюємо колір тексту при наведенні */
-  background-color: blueviolet; /* Змінюємо колір фону при наведенні */
+  color: #f9f9f9; 
+  background-color: blueviolet; 
 }

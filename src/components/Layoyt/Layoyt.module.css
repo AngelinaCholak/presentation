@@ -26,7 +26,7 @@
  font-weight: 500;
 }
 
-main {
+body {
 
   background: linear-gradient(to right, rgba(192, 144, 237, 0.5), blueviolet, rgba(0, 0, 0, 0.9)); 
 }

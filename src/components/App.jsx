@@ -19,7 +19,7 @@ export const App = () => {
             <Route index element={<Home />} />
             <Route path="movies" element={<Movies />} />
             <Route path="movies/:movieId" element={<MovieDetails />}>
-              <Route index element={<Cast />} />
+              <Route path="cast" index element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
           </Route>

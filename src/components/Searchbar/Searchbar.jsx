@@ -4,6 +4,8 @@ import Loader from 'components/Loader/Loader';
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import css from './Searchbar.module.css';
+import { FaSearch } from 'react-icons/fa';
 
 
 const Searchbar = () => {
@@ -40,13 +42,21 @@ const Searchbar = () => {
        getFilms();
      }, [query]);
   return (
-    <div>
-      <form onSubmit={onFormSubmit}>
-        <label>
-          <input type="text" name="searchKey" />
-        </label>
-        <button type="submit">Search</button>
-      </form>
+    <div className={css.searchFilms}>
+      <div className={css.search}>
+        <form className={css.SearchForm} onSubmit={onFormSubmit}>
+          <input
+            className={css.SearchFormInput}
+            type="text"
+            name="searchKey"
+            placeholder="Search movies"
+          />
+
+          <button className={css.SearchFormButton} type="submit">
+            <FaSearch className={css.SearchFormButtonLabel} />
+          </button>
+        </form>
+      </div>
       {spiner && <Loader />}
       <FilmsList films={films} />
     </div>
