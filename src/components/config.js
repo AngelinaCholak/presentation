@@ -39,13 +39,6 @@ export const fetchReviews = async movie_id => {
   });
   return response.data;
 };
-// export const fetchSearchedFilms = async queryValue => {
-
-//   const response = await axios.get(
-//     `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${queryValue}`
-//   );
-//   return response.data.results;
-// };
 export const fetchMovie = async query => {
   const params = {
     api_key: API_KEY,
@@ -53,6 +46,6 @@ export const fetchMovie = async query => {
     include_adult: false,
     language: 'en-US',
   };
-  const response = await axios.get(`${BASE_URL}search/movie`, { params });
+  const response = await axios.get(`${BASE_URL}/search/movie`, { params });
   return response.data.results;
 };

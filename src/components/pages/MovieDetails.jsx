@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchDetails } from 'components/config';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import css from 'components/index.module.css';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
+   const backLinkRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const getDetailsFilm = async () => {
@@ -24,6 +28,11 @@ const MovieDetails = () => {
 
   return (
     <div className={css.containerMovie}>
+      {location.state && (
+        <NavLink to={backLinkRef.current} className={css.backLink}>
+          <FontAwesomeIcon icon={faArrowLeft} /> Назад
+        </NavLink>
+      )}
       {movieDetails && (
         <div className={css.movieContainer}>
           <h1 className={css.title}>{movieDetails.title}</h1>
@@ -52,10 +61,7 @@ const MovieDetails = () => {
           <h3 className={css.heading}>Additional information</h3>
           <ul className={css.list}>
             <li className={css.listItem}>
-              <NavLink
-                to={'cast'}
-                className={css.link}
-              >
+              <NavLink to={'cast'} className={css.link}>
                 Cast
               </NavLink>
             </li>
@@ -65,7 +71,7 @@ const MovieDetails = () => {
               </NavLink>
             </li>
           </ul>
-          <Outlet/>
+          <Outlet />
         </div>
       )}
     </div>

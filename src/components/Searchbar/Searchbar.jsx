@@ -43,7 +43,6 @@ const Searchbar = () => {
     <div>
       <form onSubmit={onFormSubmit}>
         <label>
-          <span>Search:</span>
           <input type="text" name="searchKey" />
         </label>
         <button type="submit">Search</button>

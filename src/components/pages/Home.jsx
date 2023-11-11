@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div>
       <h1 className={css.titleTrending}>Trending today</h1>
-      <FilmsList films={films} />
+      {films.length !== 0 && <FilmsList films={films} />}
     </div>
   );
 };
