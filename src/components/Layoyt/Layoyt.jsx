@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import css from 'components/index.module.css';
+import { NavLink, Outlet } from 'react-router-dom';
+import css from './Layoyt.module.css';
 
-const Layoyt = ({children}) => {
+const Layoyt = () => {
   return (
-    <div>
+    <div className={css.filmsTrending}>
       <header className={css.container}>
         <nav>
           <ul>
@@ -31,7 +31,9 @@ const Layoyt = ({children}) => {
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

@@ -28,18 +28,20 @@ const MovieDetails = () => {
 
   return (
     <div className={css.containerMovie}>
-      {location.state && (
-        <NavLink to={backLinkRef.current} className={css.backLink}>
-          <FontAwesomeIcon icon={faArrowLeft} /> Назад
-        </NavLink>
-      )}
+      <NavLink to={backLinkRef.current} className={css.backLink}>
+        <FontAwesomeIcon icon={faArrowLeft} /> back
+      </NavLink>
       {movieDetails && (
         <div className={css.movieContainer}>
           <h1 className={css.title}>{movieDetails.title}</h1>
           <div className={css.detailsContainer}>
             <img
               className={css.imgDetails}
-              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+              src={
+                movieDetails.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+                  : 'https://via.placeholder.com/500x750'
+              }
               alt={movieDetails.title}
             />
             <div className={css.info}>
