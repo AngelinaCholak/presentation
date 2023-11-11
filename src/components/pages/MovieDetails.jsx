@@ -66,7 +66,7 @@ const MovieDetails = () => {
               <NavLink
                 to={'cast'}
                 className={({ isActive }) =>
-                  isActive ? css.active : css.headerLink
+                isActive ? css.active : css.headerLink
                 }
               >
                 Cast
