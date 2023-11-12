@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import css from 'components/index.module.css';
 import { toast } from 'react-toastify';
+import svg from './photo_5947527676661185603_x.jpg';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -41,7 +42,7 @@ const MovieDetails = () => {
               src={
                 movieDetails.poster_path
                   ? `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
-                  : 'https://via.placeholder.com/500x750'
+                  :  svg 
               }
               alt={movieDetails.title}
             />
@@ -67,7 +68,7 @@ const MovieDetails = () => {
               <NavLink
                 to={'cast'}
                 className={({ isActive }) =>
-                isActive ? css.active : css.headerLink
+                  isActive ? css.active : css.headerLink
                 }
               >
                 Cast
@@ -75,7 +76,7 @@ const MovieDetails = () => {
             </li>
             <li className={css.listItem}>
               <NavLink
-                to={"reviews"}
+                to={'reviews'}
                 className={({ isActive }) =>
                   isActive ? css.active : css.headerLink
                 }

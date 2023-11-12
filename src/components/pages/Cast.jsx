@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCasts } from 'components/config';
 import css from 'components/index.module.css';
+import svg from './photo_5947527676661185603_x.jpg';
 
 const Cast = () => {
   const [casts, setCasts] = useState(null);
@@ -36,7 +37,7 @@ const Cast = () => {
                 />
               ) : (
                 <img
-                  src="https://via.placeholder.com/500x750"
+                  src={svg}
                   alt="Poster not available"
                   className={css.castImage}
                 />

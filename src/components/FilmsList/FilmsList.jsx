@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import css from './FilmsList.module.css';
+import svg from './photo_5947527676661185603_x.jpg';
 
 const FilmsList = ({ films }) => {
 const location = useLocation();
@@ -19,10 +20,7 @@ const location = useLocation();
                 alt={film.title}
               />
             ) : (
-              <img
-                src="/absolute/path/to/your/components/svg/photo_5947527676661185603_x.jpg"
-                alt={`Poster not available for ${film.title}`}
-              />
+              <img src={svg} alt={`Poster not available for ${film.title}`} />
             )}
             <h3>{film.title}</h3>
           </NavLink>

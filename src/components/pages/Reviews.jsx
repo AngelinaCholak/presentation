@@ -16,7 +16,7 @@ const Reviews = () => {
         const fetchedReviews = await fetchReviews(movieId);
 
         if (!fetchedReviews || fetchedReviews.results.length === 0) {
-          toast.info('Unfortunately there are no reviews');
+          toast.info('Unfortunately, there are no reviews');
         } else {
           setReviews(fetchedReviews);
         }
@@ -38,7 +38,7 @@ const Reviews = () => {
 
   return (
     <div className={css.castContainer}>
-      {reviews && reviews.results && reviews.results.length > 0 ? (
+      {reviews && reviews.results && reviews.results.length > 0 && (
         <ul className={css.list}>
           {reviews.results.map(review => (
             <li key={review.id}>
@@ -47,8 +47,6 @@ const Reviews = () => {
             </li>
           ))}
         </ul>
-      ) : (
-        <p>No reviews available</p>
       )}
     </div>
   );
