@@ -4,7 +4,8 @@ import css from './FilmsList.module.css';
 import svg from './photo_5947527676661185603_x.jpg';
 
 const FilmsList = ({ films }) => {
-const location = useLocation();
+  const location = useLocation();
+
   return (
     <div className={css.container}>
       {films.map(film => (
@@ -14,14 +15,14 @@ const location = useLocation();
             state={{ from: location }}
             to={`/movies/${film.id}`}
           >
-            {film.poster_path ? (
-              <img
-                src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
-                alt={film.title}
-              />
-            ) : (
-              <img src={svg} alt={`Poster not available for ${film.title}`} />
-            )}
+            <img
+              src={
+                film.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${film.poster_path}`
+                  : svg
+              }
+              alt={film.title}
+            />
             <h3>{film.title}</h3>
           </NavLink>
         </div>
