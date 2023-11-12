@@ -8,31 +8,37 @@ import { toast } from 'react-toastify';
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
-  const [spiner, setSpiner] = useState(false);
+  const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
     const getReviewsFilms = async () => {
       try {
-        setSpiner(true);
-        const reviews = await fetchReviews(movieId);
-        if (reviews.length === 0) {
+        const fetchedReviews = await fetchReviews(movieId);
+
+        if (!fetchedReviews || fetchedReviews.results.length === 0) {
           toast.info('Unfortunately there are no reviews');
+        } else {
+          setReviews(fetchedReviews);
         }
-        setReviews(reviews);
       } catch (error) {
-        toast.error(error.message);
+        toast.error(error?.message || 'Something went wrong');
       } finally {
-        setSpiner(false);
+        setSpinner(false);
       }
     };
 
-    getReviewsFilms();
-  }, [movieId]);
+    if (spinner) {
+      getReviewsFilms();
+    }
+  }, [movieId, spinner]);
+
+  if (spinner) {
+    return <Loader />;
+  }
 
   return (
     <div className={css.castContainer}>
-      {spiner && <Loader />}
-      {reviews && reviews.results ? (
+      {reviews && reviews.results && reviews.results.length > 0 ? (
         <ul className={css.list}>
           {reviews.results.map(review => (
             <li key={review.id}>

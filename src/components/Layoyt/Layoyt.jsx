@@ -1,5 +1,3 @@
-
-import { TostBox } from 'components/Toast/Toast';
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import css from './Layoyt.module.css';
@@ -36,7 +34,6 @@ const Layoyt = () => {
       <main>
         <Outlet />
       </main>
-      <TostBox />
     </div>
   );
 };
