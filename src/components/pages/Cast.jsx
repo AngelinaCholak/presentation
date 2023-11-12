@@ -3,25 +3,38 @@ import { useParams } from 'react-router-dom';
 import { fetchCasts } from 'components/config';
 import css from 'components/index.module.css';
 import svg from './photo_5947527676661185603_x.jpg';
+import { toast } from 'react-toastify';
+import Loader from 'components/Loader/Loader';
 
 const Cast = () => {
   const [casts, setCasts] = useState(null);
   const { movieId } = useParams();
+  const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
     const getCastsFilms = async () => {
       try {
         const castsDetails = await fetchCasts(movieId);
-        setCasts(castsDetails);
+        if (castsDetails.cast.length === 0 && castsDetails.crew.length === 0) {
+          toast.info('Unfortunately, there is no cast information available.');
+        } else {
+          setCasts(castsDetails);
+        }
       } catch (error) {
-        console.error('Error fetching casts details:', error.message);
+        toast.error(error?.message || 'Something went wrong');
       } finally {
-        console.log('Finally');
+        setSpinner(false);
       }
     };
 
-    getCastsFilms();
-  }, [movieId]);
+    if (spinner) {
+      getCastsFilms();
+    }
+  }, [movieId, spinner]);
+
+  if (spinner) {
+    return <Loader />;
+  }
 
   return (
     <div className={css.castContainer}>
@@ -29,19 +42,15 @@ const Cast = () => {
         <ul className={css.castList}>
           {casts.cast.map(actor => (
             <li key={actor.id} className={css.castItem}>
-              {actor.profile_path ? (
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-                  alt={actor.name}
-                  className={css.castImage}
-                />
-              ) : (
-                <img
-                  src={svg}
-                  alt="Poster not available"
-                  className={css.castImage}
-                />
-              )}
+              <img
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                    : svg
+                }
+                alt={actor.name}
+                className={css.castImage}
+              />
               <p className={css.castName}>{actor.name}</p>
               <p className={css.castCharacter}>Character: {actor.character}</p>
             </li>
