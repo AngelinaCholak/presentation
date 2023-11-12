@@ -4,6 +4,7 @@ import { fetchDetails } from 'components/config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import css from 'components/index.module.css';
+import { toast } from 'react-toastify';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -17,7 +18,7 @@ const MovieDetails = () => {
         const details = await fetchDetails(movieId);
         setMovieDetails(details);
       } catch (error) {
-        console.error('Error fetching movie details:', error.message);
+        toast.error(error.message);
       } finally {
         console.log('Finally');
       }

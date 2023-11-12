@@ -2,7 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Loader from './Loader/Loader';
 import Layoyt from './Layoyt/Layoyt';
-
+import { TostBox } from './Toast/Toast';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = lazy(() => import('./pages/Home'));
 const Movies = lazy(() => import('./pages/Movies'));
@@ -14,6 +15,7 @@ export const App = () => {
   return (
     <div>
       <Suspense fallback={<Loader />}>
+        <TostBox />
         <Routes>
           <Route path="/" element={<Layoyt />}>
             <Route index element={<Home />} />

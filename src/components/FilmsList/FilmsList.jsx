@@ -21,7 +21,9 @@ const location = useLocation();
             ) : (
               <img
                 src={`https://via.placeholder.com/500x750`}
-                alt={`Poster not available for ${film.title}`}
+                  alt={`Poster not available for ${film.title}`}
+                  
+               
               />
             )}
             <h3>{film.title}</h3>

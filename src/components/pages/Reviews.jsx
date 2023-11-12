@@ -15,12 +15,12 @@ const Reviews = () => {
       try {
         setSpiner(true);
         const reviews = await fetchReviews(movieId);
-          if (reviews.length === 0) {
-            toast.info('Unfortunately there are no reviews');
-          }
+        if (reviews.length === 0) {
+          toast.info('Unfortunately there are no reviews');
+        }
         setReviews(reviews);
       } catch (error) {
-          toast.error(error.message);
+        toast.error(error.message);
       } finally {
         setSpiner(false);
       }
