@@ -14,6 +14,7 @@ const Cast = () => {
   useEffect(() => {
     const getCastsFilms = async () => {
       try {
+        setSpinner(true);
         const castsDetails = await fetchCasts(movieId);
         if (castsDetails.cast.length === 0 && castsDetails.crew.length === 0) {
           toast.info('Unfortunately, there is no cast information available.');
@@ -26,11 +27,9 @@ const Cast = () => {
         setSpinner(false);
       }
     };
+    getCastsFilms();
 
-    if (spinner) {
-      getCastsFilms();
-    }
-  }, [movieId, spinner]);
+  }, [movieId]);
 
   if (spinner) {
     return <Loader />;

@@ -13,6 +13,7 @@ const Reviews = () => {
   useEffect(() => {
     const getReviewsFilms = async () => {
       try {
+        setSpinner(true);
         const fetchedReviews = await fetchReviews(movieId);
 
         if (!fetchedReviews || fetchedReviews.results.length === 0) {
@@ -26,11 +27,9 @@ const Reviews = () => {
         setSpinner(false);
       }
     };
+     getReviewsFilms();
 
-    if (spinner) {
-      getReviewsFilms();
-    }
-  }, [movieId, spinner]);
+  }, [movieId]);
 
   if (spinner) {
     return <Loader />;
