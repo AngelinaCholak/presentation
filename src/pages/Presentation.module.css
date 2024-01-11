@@ -1,0 +1,23 @@
+.container {
+ max-width: 1000px; 
+margin: 0 auto;
+}
+.title{
+color: #f87219;
+font-size: 60px;
+/* font-family: Poppins; */
+font-weight: 600;
+line-height: 48px;
+word-wrap: break-word;
+justify-content: center;
+display: flex;
+margin-top: 140px;
+}
+.img{
+width:100%;
+margin-top: 40px;
+transition: transform 0.3s ease-in-out;
+}
+.img:hover {
+  transform: scale(1.1);
+}

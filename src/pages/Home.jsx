@@ -1,36 +1,13 @@
-import { fetchTrending } from 'components/config';
-import FilmsList from 'components/FilmsList/FilmsList';
-import React, { useEffect, useState } from 'react';
-import css from 'components/index.module.css';
-import Loader from 'components/Loader/Loader';
-import { toast } from 'react-toastify';
-const Home = () => {
-  const [films, setFilms] = useState([]);
-  const [spiner, setSpiner] = useState(false);
+import React from 'react'
+import css from './Home.module.css';
+import image1 from './img/slide1.png';
+import image2 from './img/slide2.png';
 
-  useEffect(() => {
-    const fetchTrendingFilms = async () => {
-      try {
-        const trendingFilms = await fetchTrending();
-        setFilms(trendingFilms);
-        setSpiner(true);
-      } catch (error) {
-        toast.error(error.message);
-      } finally {
-        setSpiner(false);
-      }
-    };
-
-    fetchTrendingFilms();
-  }, []);
-
+export const Home = () => {
   return (
-    <div className={css.bodyFilms}>
-      <h1 className={css.titleTrending}>Trending today</h1>
-      {spiner && <Loader />}
-      {films.length !== 0 && <FilmsList films={films} />}
+    <div className={css.container}>
+      <img className={css.img} src={image1} alt="img" />
+      <img className={css.img} src={image2} alt="img" />
     </div>
   );
-};
-
-export default Home;
+}
